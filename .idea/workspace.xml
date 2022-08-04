@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e23c9feb-79ee-4bba-9ce1-5f84fb2d5531" name="Changes" comment="memory draft">
-      <change afterPath="$PROJECT_DIR$/src/words/Words.txt" afterDir="false" />
+    <list default="true" id="e23c9feb-79ee-4bba-9ce1-5f84fb2d5531" name="Changes" comment="reading from file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Memory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Memory.java" afterDir="false" />
     </list>
@@ -37,6 +36,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Jakub Szwaj\IdeaProjects\memory\memory\src\Words" />
     </key>
@@ -71,7 +73,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659628316786</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="reading from file">
+      <created>1659630515080</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1659630515080</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -87,6 +96,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="memory draft" />
-    <option name="LAST_COMMIT_MESSAGE" value="memory draft" />
+    <MESSAGE value="reading from file" />
+    <option name="LAST_COMMIT_MESSAGE" value="reading from file" />
   </component>
 </project>
