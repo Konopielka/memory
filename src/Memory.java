@@ -17,7 +17,8 @@ public class Memory {
 
 
     }
-    public void readFile() {
+    public String readFile() {
+        //zmieniłem void na String
         Path path = Paths.get("src/words/Words.txt");
         ArrayList<String> result = new ArrayList<>();
 
@@ -29,7 +30,13 @@ public class Memory {
 //                st.forEach(System.out::println);
 //
 //            }
-            st.forEach(System.out::println);
+            //st.forEach(System.out::println);
+
+            for(int i = 0; i < st.toArray().length; i++){
+                st.toList().get(random.nextInt(st.toArray().length));
+            }
+            int randomIndex = (int) (Math.random() * st.toList().size());
+            return st.toList().get(randomIndex);
 
         } catch (IOException ex) {
             System.out.println("Unable to read" + path);
