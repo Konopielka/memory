@@ -5,11 +5,15 @@ import java.util.*;
 
 public class Memory {
 
+    private static String[][] board = new String[2][4];
+    private static String[][] cards = new String[2][4];
+
+
     public static void main(String[] args) {
 
         Memory memory = new Memory();
         //memory.readFile();
-        board();
+        printBoard();
         System.out.println("");
         randomWord();
     }
@@ -29,7 +33,20 @@ public class Memory {
             int index = random.nextInt(array.length);
             System.out.println(array[index]);
 
+
+            for (int i =0; i<2; i++){
+                for(int j = 0; j<4; j++){
+
+                    cards[i][j] = array[index];
+                    Arrays.stream(array).toList().remove(index);
+                }
+            }
+
             return array[index];
+        }
+
+        public static void checkInput(String [][] cards){
+
         }
 
 
@@ -65,16 +82,17 @@ public class Memory {
 
 
 
-    public static void board(){
+    public static void printBoard(){
         for (int i = 0; i < 2; i++) {
             if (i == 0) {
-                System.out.print("A");
-            }else{
-                System.out.println("B");
+                System.out.print("A ");
             }
+            System.out.print("B ");
+
             for (int j = 0; j < 4; j++) {
-                System.out.print("X");
+                System.out.print(board[i][j]);
             }
+            System.out.println();
         }
     }
 
