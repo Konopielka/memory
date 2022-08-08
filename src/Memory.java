@@ -20,7 +20,7 @@ public class Memory {
         //memory.readFile();
         printBoard();
         System.out.println("");
-        randomWord();
+        randomWords();
 
         while (true){
             System.out.println("press n for new game, q for quit");
@@ -30,7 +30,7 @@ public class Memory {
                 break;
             }else if(nq.equals("n")){
 
-                randomWord();
+                randomWords();
                 for (int i = 0; i<2;i++){
                     for (int j = 0; j<4;j++){
                         board[i][j] = "X";
@@ -42,88 +42,48 @@ public class Memory {
 
             }else{
                 System.out.println("press n for new game, q for quit");
-                continue;
             }
 
         }
 
     }
-        public static void randomWord (){
-            List<String> listOfStrings = new ArrayList<String>();
+        public static void randomWords(){
+            ArrayList<String> listOfStrings;
             String filename = "C:\\Users\\Jakub Szwaj\\IdeaProjects\\memory\\memory\\src\\words\\Words.txt";
             try {
-                listOfStrings = Files.readAllLines(Path.of(filename));
+                listOfStrings = (ArrayList<String>) Files.readAllLines(Path.of(filename));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
 
-            String[] array = listOfStrings.toArray(new String[0]);
+            String[] array = listOfStrings.toArray(new String[4]);
 
             Random random = new Random();
-
 //            int index = random.nextInt(array.length);
 //            System.out.println(array[index]);
 
-
-            for (int i =0; i<2; i++){
-                for(int j = 0; j<4; j++){
+            for (int i = 0; i<4; i++){
+                //for(int j = 0; j<4; j++){
                     int index = random.nextInt(array.length);
-                    cards[i][j] = array[index];
+
+                    cards[0][i] = array[index];
+
+
+
+//                    indexArray.add(String.valueOf(index));
+                   // int index2 = random.nextInt(indexArray.size());
+
+                    cards[1][i]= array[index];
                     //Arrays.stream(array).toList().remove(index);
-                }
+                //}
             }
-
-
         }
-
-//        public static void checkInput(String [][] cards){
-//
-//        }
-
-
-        /*for (String eachString : array){
-            System.out.println(eachString);
-        }*/
-
-
-    /*public void readFile() {
-
-        Path path = Paths.get("C:\\Users\\Jakub Szwaj\\IdeaProjects\\memory\\memory\\src\\words\\Words.txt");
-        ArrayList<String> result = new ArrayList<>();
-
-        try (Stream<String> st = Files.lines(path, StandardCharsets.UTF_8)) {
-            Random random = new Random();
-            st.toList().size();
-
-            for (int i = 0; i < st.toList().size(); i++) {
-                st.forEach(System.out::println);
-
-            }
-            st.forEach(System.out::println);
-
-           *//* for (int i = 0; i < st.toArray().length; i++) {
-                st.toList().get(random.nextInt(st.toArray().length));
-            }
-            int randomIndex = (int) (Math.random() * st.toList().size());
-            return st.toList().get(randomIndex);*//*
-
-        } catch (IOException ex) {
-            System.out.println("Unable to read" + path);
-        */
-
 
 
     public static void printBoard(){
         for (int i = 0; i < 2; i++) {
-//            if (i == 0) {
-//                System.out.print("A ");
-           //System.out.print("X");
-
-            //System.out.print("B ");
-
             for (int j = 0; j < 4; j++) {
                 System.out.print(board[i][j]);
-                //System.out.print("X");
             }
             System.out.println();
         }
@@ -152,7 +112,7 @@ public class Memory {
                 System.out.println("column1-4");
                 int column2 = scanner.nextInt();
 
-                if(!board[rowB-1][column2].equals("X")){
+                if(!board[rowB-1][column2-1].equals("X")){
                     System.out.println("already entered");
                     board[rowA-1][column1-1] = "X";
                     System.out.println();
