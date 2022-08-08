@@ -3,7 +3,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
+
+
 public class Memory {
+
+
 
     private static String[][] board = new String[2][4];
     private static String[][] cards = new String[2][4];
@@ -34,20 +38,20 @@ public class Memory {
             System.out.println(array[index]);
 
 
-            for (int i =0; i<2; i++){
+            /*for (int i =0; i<2; i++){
                 for(int j = 0; j<4; j++){
 
                     cards[i][j] = array[index];
                     Arrays.stream(array).toList().remove(index);
                 }
-            }
+            }*/
 
             return array[index];
         }
 
-        public static void checkInput(String [][] cards){
-
-        }
+//        public static void checkInput(String [][] cards){
+//
+//        }
 
 
         /*for (String eachString : array){
@@ -84,16 +88,29 @@ public class Memory {
 
     public static void printBoard(){
         for (int i = 0; i < 2; i++) {
-            if (i == 0) {
-                System.out.print("A ");
-            }
-            System.out.print("B ");
+//            if (i == 0) {
+//                System.out.print("A ");
+            System.out.print("X");
+
+            //System.out.print("B ");
 
             for (int j = 0; j < 4; j++) {
                 System.out.print(board[i][j]);
+                System.out.print("X");
             }
             System.out.println();
         }
     }
+
+    public static void checkInput(String[][] cards){
+        Scanner scanner = new Scanner(System.in);
+        while(true){
+            if(!gameOver()){
+                System.out.println("row AB, column 1-4");
+                int rowColumnA1 = scanner.nextInt();
+            }
+        }
+    }
+
 
 }
