@@ -3,33 +3,29 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
-
-
 public class Memory {
 
 
 
     private static String[][] board = new String[2][4];
     private static String[][] cards = new String[2][4];
+    private static int chances = 10;
 
 
     public static void main(String[] args) {
 
+
         Scanner scanner = new Scanner(System.in);
-        Memory memory = new Memory();
-        //memory.readFile();
+
+
         printBoard();
         System.out.println("");
         randomWords();
 
         while (true){
-            System.out.println("press n for new game, q for quit");
-            String nq = scanner.nextLine();
-            if(nq.equals("q")){
-                System.out.println("end");
-                break;
-            }else if(nq.equals("n")){
-
+            System.out.println("Type EASY for easy mode, type HARD for hard mode");
+            String easyHard = scanner.nextLine();
+            if(easyHard.equals("EASY")){
                 randomWords();
                 for (int i = 0; i<2;i++){
                     for (int j = 0; j<4;j++){
@@ -37,11 +33,18 @@ public class Memory {
                     }
                 }
                 printBoard();
+                --chances;
                 checkInput(cards);
                 break;
 
-            }else{
-                System.out.println("press n for new game, q for quit");
+            }else if(easyHard.equals("HARD")){
+                randomWords();
+                for (int i =0; i<2; i++){
+                    for (int j = 0; j<8;j++){
+                        board[i][j] = "X";
+                    }
+                }
+
             }
 
         }
@@ -49,7 +52,7 @@ public class Memory {
     }
         public static void randomWords(){
             ArrayList<String> listOfStrings;
-            String filename = "C:\\Users\\Jakub Szwaj\\IdeaProjects\\memory\\memory\\src\\words\\Words.txt";
+            String filename = "src/words/Words.txt";
             try {
                 listOfStrings = (ArrayList<String>) Files.readAllLines(Path.of(filename));
             } catch (IOException e) {
@@ -58,24 +61,20 @@ public class Memory {
 
             String[] array = listOfStrings.toArray(new String[4]);
 
+
             Random random = new Random();
-//            int index = random.nextInt(array.length);
-//            System.out.println(array[index]);
+
+            int index;
 
             for (int i = 0; i<4; i++){
                 //for(int j = 0; j<4; j++){
-                    int index = random.nextInt(array.length);
+                    index = random.nextInt(array.length);
 
                     cards[0][i] = array[index];
+                    cards[1][i] = array[index];
 
-
-
-//                    indexArray.add(String.valueOf(index));
-                   // int index2 = random.nextInt(indexArray.size());
-
-                    cards[1][i]= array[index];
-                    //Arrays.stream(array).toList().remove(index);
-                //}
+//
+               // }
             }
         }
 
@@ -85,7 +84,8 @@ public class Memory {
             for (int j = 0; j < 4; j++) {
                 System.out.print(board[i][j]);
             }
-            System.out.println();
+
+            System.out.println(" left chances: " +  chances);
         }
     }
 
@@ -93,7 +93,7 @@ public class Memory {
         Scanner scanner = new Scanner(System.in);
         while(true){
             if(!gameOver()){
-                System.out.println("row AB, column 1-4");
+                System.out.println("row A to B, column 1 to 4");
                 int rowA = scanner.nextInt();
                 int column1 = scanner.nextInt();
 
@@ -102,27 +102,31 @@ public class Memory {
                     System.out.println();
 
                     printBoard();
+                    --chances;
                     continue;
                 }else {
                     board[rowA-1][column1-1] = " " + cards[rowA-1][column1-1] + " ";
                     printBoard();
                 }
-                System.out.println("rr");
+
+                System.out.println("row A - B");
                 int rowB = scanner.nextInt();
                 System.out.println("column1-4");
                 int column2 = scanner.nextInt();
+
 
                 if(!board[rowB-1][column2-1].equals("X")){
                     System.out.println("already entered");
                     board[rowA-1][column1-1] = "X";
                     System.out.println();
-
+                    --chances;
                             printBoard();
 
-                }else {
+                }else{
                     board[rowB-1][column2-1] = " " + cards[rowB-1][column2-1]+ " ";
 
                     if(board[rowA-1][column1-1].equals(board[rowB-1][column2-1])){
+                        --chances;
                         printBoard();
                         System.out.println("ok");
                     }else {
@@ -130,7 +134,9 @@ public class Memory {
                         System.out.println("false");
                         board[rowA-1][column1-1] = "X";
                         board[rowB-1][column2-1] = "X";
+                        --chances;
                         printBoard();
+
                     }
                 }
 
@@ -141,6 +147,10 @@ public class Memory {
         }
     }
     public static boolean gameOver(){
+        if (chances == 0){
+            return true;
+
+        }
         for (int i = 0; i<2; i++){
             for (int j = 0; j<4;j++){
                 if(board[i][j].equals("X")){

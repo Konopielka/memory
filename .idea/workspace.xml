@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e23c9feb-79ee-4bba-9ce1-5f84fb2d5531" name="Changes" comment="reading all from file" />
+    <list default="true" id="e23c9feb-79ee-4bba-9ce1-5f84fb2d5531" name="Changes" comment="problem with random">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Memory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Memory.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +32,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/idden/JavaRepo/test_nauka"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -116,6 +120,7 @@
     <MESSAGE value="memory draft" />
     <MESSAGE value="reading from file" />
     <MESSAGE value="reading all from file" />
-    <option name="LAST_COMMIT_MESSAGE" value="reading all from file" />
+    <MESSAGE value="problem with random" />
+    <option name="LAST_COMMIT_MESSAGE" value="problem with random" />
   </component>
 </project>
